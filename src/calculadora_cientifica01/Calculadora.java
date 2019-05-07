@@ -15,6 +15,8 @@ public class Calculadora extends javax.swing.JFrame {
    //Declaramos los atributos
     private boolean igual, inicio = true, operacion1, operacion2;
     private double a, b, c, memoria = 0, resultado, valor1, valor2;
+    private String cadena, funciones, tipoOperaciones;
+    
     public Calculadora() {
        initComponents();
        this.setLocationRelativeTo(null);
@@ -678,47 +680,123 @@ public class Calculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Botones numericos
     private void Button_N1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N1ActionPerformed
-        
+        //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("1");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"1");
+        }
     }//GEN-LAST:event_Button_N1ActionPerformed
 
     private void Button_N2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N2ActionPerformed
-        
+        //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("2");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"2");
+        }
     }//GEN-LAST:event_Button_N2ActionPerformed
 
     private void Button_N3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N3ActionPerformed
-        
+         //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("3");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"3");
+        }
     }//GEN-LAST:event_Button_N3ActionPerformed
 
     private void Button_N4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N4ActionPerformed
-       
+        //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("4");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"4");
+        }
     }//GEN-LAST:event_Button_N4ActionPerformed
 
     private void Button_N5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N5ActionPerformed
-        
+         //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("5");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"5");
+        }
     }//GEN-LAST:event_Button_N5ActionPerformed
 
     private void Button_N6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N6ActionPerformed
-        
+         //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("6");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"6");
+        }
     }//GEN-LAST:event_Button_N6ActionPerformed
 
     private void Button_N7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N7ActionPerformed
-        
+         //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("7");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"7");
+        }
     }//GEN-LAST:event_Button_N7ActionPerformed
 
     private void Button_N8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N8ActionPerformed
-       
+        //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("8");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"8");
+        }
     }//GEN-LAST:event_Button_N8ActionPerformed
 
     private void Button_N9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N9ActionPerformed
-       
+        //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("9");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"9");
+        }
     }//GEN-LAST:event_Button_N9ActionPerformed
 
     private void Button_N0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_N0ActionPerformed
-        
+         //Condiciones para la variable inicio
+        if (inicio == true) {
+            TextField_Principal.setText(" ");
+            TextField_Principal.setText("0");
+            inicio = false;
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+"0");
+        }
     }//GEN-LAST:event_Button_N0ActionPerformed
-    //Botón la función de punto decimal
+    
+//Botón la función de punto decimal
     private void Button_DecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_DecimalActionPerformed
-        
+        if (TextField_Principal.getText().contains(".")) {
+            
+        }else{
+            TextField_Principal.setText(TextField_Principal.getText()+".");
+            inicio = false;
+        }
     }//GEN-LAST:event_Button_DecimalActionPerformed
 //Botón de la función de suma
     private void Button_SumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SumaActionPerformed

@@ -789,7 +789,7 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Button_N0ActionPerformed
     
-//Botón la función de punto decimal
+//Botón la función de punto decimal//
     private void Button_DecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_DecimalActionPerformed
         if (TextField_Principal.getText().contains(".")) {
             

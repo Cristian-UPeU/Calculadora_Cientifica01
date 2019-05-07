@@ -803,30 +803,153 @@ public class Calculadora extends javax.swing.JFrame {
         igual = false;
         inicio = true;
         //Condicion para la Variable1
-        if (operacion1 == true) {
+        if (operacion1 = true) {
             valor1 = Double.parseDouble(TextField_Principal.getText());
+            TextField_Previo.setText("");
+            TextField_Previo.setText(TextField_Principal.getText() + "+");
+            operacion1 = false;
+        } else {
+            if (operacion2 = true) {
+                valor2 = Double.parseDouble(TextField_Principal.getText());
+                TextField_Previo.setText(TextField_Principal.getText() + "+");
+                operacion2 = false;
+            } else {
+                TextField_Previo.setText(TextField_Principal.getText() + "+");
+                operaciones(resultado, valor2);
+            }
         }
+        tipoOperaciones = "+";
     }//GEN-LAST:event_Button_SumaActionPerformed
 //Botón de la función de resta
     private void Button_RestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RestaActionPerformed
-       
+           igual = false;
+        inicio = true;
+        //Condicion para la Variable1
+        if (operacion1 = true) {
+            valor1 = Double.parseDouble(TextField_Principal.getText());
+            TextField_Previo.setText("");
+            TextField_Previo.setText(TextField_Principal.getText() + "-");
+            operacion1 = false;
+        } else {
+            if (operacion2 = true) {
+                valor2 = Double.parseDouble(TextField_Principal.getText());
+                TextField_Previo.setText(TextField_Principal.getText() + "-");
+                operacion2 = false;
+            } else {
+                TextField_Previo.setText(TextField_Principal.getText() + "-");
+                operaciones(resultado, valor2);
+            }
+        }
+        tipoOperaciones = "-";
     }//GEN-LAST:event_Button_RestaActionPerformed
 //Botón de la función de multiplicar
     private void Button_MultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MultiplicacionActionPerformed
-       
+          igual = false;
+        inicio = true;
+        //Condicion para la Variable1
+        if (operacion1 = true) {
+            valor1 = Double.parseDouble(TextField_Principal.getText());
+            TextField_Previo.setText("");
+            TextField_Previo.setText(TextField_Principal.getText() + "*");
+            operacion1 = false;
+        } else {
+            if (operacion2 = true) {
+                valor2 = Double.parseDouble(TextField_Principal.getText());
+                TextField_Previo.setText(TextField_Principal.getText() + "*");
+                operacion2 = false;
+            } else {
+                TextField_Previo.setText(TextField_Principal.getText() + "*");
+                operaciones(resultado, valor2);
+            }
+        }
+        tipoOperaciones = "*";
     }//GEN-LAST:event_Button_MultiplicacionActionPerformed
 //Botón de la función de división
     private void Button_DivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_DivisionActionPerformed
-        
+           igual = false;
+        inicio = true;
+        //Condicion para la Variable1
+        if (operacion1 = true) {
+            valor1 = Double.parseDouble(TextField_Principal.getText());
+            TextField_Previo.setText("");
+            TextField_Previo.setText(TextField_Principal.getText() + "/");
+            operacion1 = false;
+        } else {
+            if (operacion2 == true) {
+                valor2 = Double.parseDouble(TextField_Principal.getText());
+                TextField_Previo.setText(TextField_Principal.getText() + "/");
+                operacion2 = false;
+            } else {
+                TextField_Previo.setText(TextField_Principal.getText() + "/");
+                operaciones(resultado, valor2);
+            }
+        }
+        tipoOperaciones = "/";
     }//GEN-LAST:event_Button_DivisionActionPerformed
 
+    //Metodo con las operaciones de suma resta multiplicacion y division
+    private void operaciones(double valor1, double valor2){
+        //Switch para que evalue la variable tipoOperaciones
+        switch(tipoOperaciones){
+            case "+":
+                resultado = valor1 + valor2;
+                TextField_Principal.setText(resultado + " ");
+                valor1 = Double.parseDouble(TextField_Principal.getText());
+                break;
+
+            case "-":
+                resultado = valor1 - valor2;
+                TextField_Principal.setText(resultado + " ");
+                valor1 = Double.parseDouble(TextField_Principal.getText());
+                break;
+                
+            case "*":
+                resultado = valor1 * valor2;
+                TextField_Principal.setText(resultado + " ");
+                valor1 = Double.parseDouble(TextField_Principal.getText());
+                break;
+                
+            case "/":
+                if (valor2 == 0) {
+                TextField_Principal.setText("Error");
+                break;
+                }else{
+                resultado = valor1 / valor2;
+                TextField_Principal.setText(resultado + " ");
+                valor1 = Double.parseDouble(TextField_Principal.getText());
+                break;
+                }  
+        }
+    }
+    
 //Botón de la función de igual
     private void Button_gualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_gualActionPerformed
-        
+        inicio = true;
+        operacion1 = true;
+        if (igual=true) {
+            if (tipoOperaciones == null) {
+                
+            }else{
+              valor2 = Double.parseDouble(TextField_Principal.getText());
+              TextField_Previo.setText(TextField_Previo.getText()+TextField_Principal.getText());
+              
+              operaciones(valor1, valor2);
+              igual = false;
+            }
+        }else{
+             TextField_Previo.setText("");
+             operaciones(valor1, valor2);
+        }
     }//GEN-LAST:event_Button_gualActionPerformed
 //Botón con la función de RAIZ CUADRADA
     private void Button_RaizCuadradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RaizCuadradaActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+        if (valor1 >=0) {
+            TextField_Previo.setText("sqrt ("+valor1+" )");
+            TextField_Principal.setText(Math.sqrt(valor1)+" ");
+        }else{
+            TextField_Principal.setText("Error ");
+        }
     }//GEN-LAST:event_Button_RaizCuadradaActionPerformed
 //Botón con la función de PORCENTAJE
     private void Button_PorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_PorcentajeActionPerformed

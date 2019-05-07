@@ -943,37 +943,63 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_gualActionPerformed
 //Botón con la función de RAIZ CUADRADA
     private void Button_RaizCuadradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RaizCuadradaActionPerformed
-       valor1 = Double.parseDouble(TextField_Principal.getText());
-        if (valor1 >=0) {
-            TextField_Previo.setText("sqrt ("+valor1+" )");
-            TextField_Principal.setText(Math.sqrt(valor1)+" ");
-        }else{
+        valor1 = Double.parseDouble(TextField_Principal.getText());
+        if (valor1 >= 0) {
+            TextField_Previo.setText("sqrt (" + valor1 + " )");
+            TextField_Principal.setText(Math.sqrt(valor1) + " ");
+        } else {
             TextField_Principal.setText("Error ");
         }
     }//GEN-LAST:event_Button_RaizCuadradaActionPerformed
 //Botón con la función de PORCENTAJE
     private void Button_PorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_PorcentajeActionPerformed
-        
+        valor2 = Double.parseDouble(TextField_Principal.getText());
+        TextField_Previo.setText(TextField_Previo.getText() + TextField_Principal.getText());
+        TextField_Principal.setText((valor1 * valor2) / 100 + " ");
+        igual = true;
     }//GEN-LAST:event_Button_PorcentajeActionPerformed
 //Botón que realiza la operación inversa 1/x
     private void Button_1xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_1xActionPerformed
-        
+        valor1 = Double.parseDouble(TextField_Principal.getText());
+        TextField_Previo.setText("reciproc( "+ valor1 +" )");
+        TextField_Principal.setText(1/valor1+ " ");
     }//GEN-LAST:event_Button_1xActionPerformed
  //Botón que realiza la operación cambio de signo
     private void Button_SignoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignoActionPerformed
-      
+      double nu1 = 0, nu2, nu3;
+      nu2 = Double.parseDouble(TextField_Principal.getText());
+      nu3 = nu1 - nu2;
+      TextField_Principal.setText(nu3+" ");
     }//GEN-LAST:event_Button_SignoActionPerformed
  //Botón con la función de C
     private void Button_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CActionPerformed
-       
+       TextField_Principal.setText("0");
+       TextField_Previo.setText(" ");
+       inicio = true;
+       funciones = "";
+       operacion1 = true;
+       operacion2 = true;
+       igual = true;
+       valor1 = 0;
+       valor2 = 0;
+       resultado = 0;
     }//GEN-LAST:event_Button_CActionPerformed
  //Botón con la función de CE
     private void Button_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CEActionPerformed
-       
+       TextField_Principal.setText("0");
+       TextField_Previo.setText(" ");
+       inicio = true;
+       funciones = "";
     }//GEN-LAST:event_Button_CEActionPerformed
 //Botón con la función de RETROCEDER
     private void Button_RetrosesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RetrosesoActionPerformed
-       
+        if (TextField_Principal.getText().length()>1) {
+           TextField_Principal.setText(TextField_Principal.getText().substring(0, TextField_Principal.getText().length()-1));
+            if (TextField_Principal.getText().length()==1) {
+                TextField_Principal.setText("0");
+                inicio = true;
+            }
+        }
     }//GEN-LAST:event_Button_RetrosesoActionPerformed
     
     private void Button_CosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CosActionPerformed

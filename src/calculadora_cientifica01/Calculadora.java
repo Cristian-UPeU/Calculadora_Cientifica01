@@ -14,12 +14,13 @@ import java.awt.Color;
 public class Calculadora extends javax.swing.JFrame {
    //Declaramos los atributos
     private boolean igual, inicio = true, operacion1, operacion2;
-    private double a, b, c, memoria = 0, resultado, valor1, valor2;
+    private double a, b, c, cos, acos, sin, asin, tan, atan, memoria = 0, resultado, valor1, valor2;
     private String cadena, funciones, tipoOperaciones;
     
     public Calculadora() {
        initComponents();
        this.setLocationRelativeTo(null);
+       Label_Memoria.setVisible(false);
     }
 
     /**
@@ -918,7 +919,26 @@ public class Calculadora extends javax.swing.JFrame {
                 TextField_Principal.setText(resultado + " ");
                 valor1 = Double.parseDouble(TextField_Principal.getText());
                 break;
-                }  
+                }
+                
+             //case que saca la potencia de un numero
+            case "potencia":
+                resultado = Math.pow(valor1, valor2);
+                TextField_Principal.setText(resultado+" ");
+                break;
+                
+            case "raizx":
+                if (valor2 <= 0) {
+                    TextField_Principal.setText("Error ");
+                    break;
+                }else{
+                    TextField_Previo.setText(valor2 + " yroot ");
+                    a = 1;
+                    c = a/valor2;
+                    TextField_Principal.setText(Math.pow(valor1, c) + " ");
+                    break;
+                }
+                
         }
     }
     
@@ -993,66 +1013,205 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_CEActionPerformed
 //Botón con la función de RETROCEDER
     private void Button_RetrosesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RetrosesoActionPerformed
-        if (TextField_Principal.getText().length()>1) {
+        if (TextField_Principal.getText().length()>0) {
            TextField_Principal.setText(TextField_Principal.getText().substring(0, TextField_Principal.getText().length()-1));
-            if (TextField_Principal.getText().length()==1) {
+            if (TextField_Principal.getText().length()==0) {
                 TextField_Principal.setText("0");
                 inicio = true;
             }
         }
     }//GEN-LAST:event_Button_RetrosesoActionPerformed
+    //Metodo trigonometria
+    public void Trigonometria (){
+        //Condicion que evalua si el radio Button es seleccionado
+        if (RadioButton_Sexages.isSelected()) {
+            switch (funciones) {
+                //seno
+                case "sin":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" sin( " + valor1 + " )");
+                    sin = Math.sin(Math.PI * (valor1) / 180);
+                    TextField_Principal.setText(sin + " ");
+                    break;
+
+                //seno inverso
+                case "asin":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" sin( " + valor1 + " )");
+                    asin = Math.asin(valor1) * 180 / Math.PI;
+                    TextField_Principal.setText(asin + " ");
+                    break;
+
+                //coseno
+                case "cos":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" cos( " + valor1 + " )");
+                    cos = Math.cos(Math.PI * (valor1) / 180);
+                    TextField_Principal.setText(cos + " ");
+                    break;
+
+                //acoseno inverso
+                case "acos":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" acos( " + valor1 + " )");
+                    acos = Math.acos(valor1) * 180 / Math.PI;
+                    TextField_Principal.setText(acos + " ");
+                    break;
+
+                //tangente
+                case "tan":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" tan( " + valor1 + " )");
+                    tan = Math.tan(Math.PI * (valor1) / 180);
+                    TextField_Principal.setText(tan + " ");
+                    break;
+
+                //tangente inverso
+                case "atan":
+                    valor1 = Double.parseDouble(TextField_Principal.getText());
+                    TextField_Previo.setText(" atan( " + valor1 + " )");
+                    atan = Math.atan(valor1) * 180 / Math.PI;
+                    TextField_Principal.setText(atan + " ");
+                    break;
+            }
+        } else {
+            //Condicion que evalua si el radio Button es seleccionado
+            if (RadioButton_Radianes.isSelected()) {
+                switch (funciones) {
+                    //seno
+                    case "sin":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" sinr( " + valor1 + " )");
+                        sin = Math.sin(valor1);
+                        TextField_Principal.setText(sin + " ");
+                        break;
+
+                    //seno inverso
+                    case "asin":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" sinr( " + valor1 + " )");
+                        asin = Math.asin(valor1);
+                        TextField_Principal.setText(asin + " ");
+                        break;
+
+                    //coseno
+                    case "cos":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" cosr( " + valor1 + " )");
+                        cos = Math.cos(valor1);
+                        TextField_Principal.setText(cos + " ");
+                        break;
+
+                    //acoseno inverso
+                    case "acos":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" acosr( " + valor1 + " )");
+                        acos = Math.acos(valor1);
+                        TextField_Principal.setText(acos + " ");
+                        break;
+
+                    //tangente
+                    case "tan":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" tanr( " + valor1 + " )");
+                        tan = Math.tan(valor1);
+                        TextField_Principal.setText(tan + " ");
+                        break;
+
+                    //tangente inverso
+                    case "atan":
+                        valor1 = Double.parseDouble(TextField_Principal.getText());
+                        TextField_Previo.setText(" atanr( " + valor1 + " )");
+                        atan = Math.atan(valor1);
+                        TextField_Principal.setText(atan + " ");
+                        break;
+                }
+            }
+        }
+    }
     
     private void Button_CosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CosActionPerformed
-       
+       funciones = "cos";
+       Trigonometria();
     }//GEN-LAST:event_Button_CosActionPerformed
 
     private void Button_SinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SinActionPerformed
-        
+        funciones = "sin";
+        Trigonometria();
     }//GEN-LAST:event_Button_SinActionPerformed
 
     private void Button_TanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_TanActionPerformed
-        
+        funciones = "tan";
+        Trigonometria();
     }//GEN-LAST:event_Button_TanActionPerformed
 
     private void Button_AcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AcosActionPerformed
-         
+         funciones = "acos";
+         Trigonometria();
     }//GEN-LAST:event_Button_AcosActionPerformed
 
     private void Button_AsinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AsinActionPerformed
-       
+       funciones = "asin";
+       Trigonometria();
     }//GEN-LAST:event_Button_AsinActionPerformed
 
     private void Button_AtanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AtanActionPerformed
-        
+        funciones = "atan";
+        Trigonometria();
     }//GEN-LAST:event_Button_AtanActionPerformed
 //Botón que devuelve el valor de Pi
     private void Button_PIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_PIActionPerformed
+      TextField_Previo.setText("PI ");
+      TextField_Principal.setText(Math.PI+" ");
       
     }//GEN-LAST:event_Button_PIActionPerformed
  //Botón que eleva a x a la -1
     private void Button_Xmenos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Xmenos1ActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText(valor1+" ^-1 ");
+       TextField_Principal.setText(Math.pow(valor1, -1)+" ");
     }//GEN-LAST:event_Button_Xmenos1ActionPerformed
 //Botón que eleva un numero a x Potencia
     private void Button_ExponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExponenteActionPerformed
+       inicio = true;
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText(valor1+ "^");
+       tipoOperaciones = "potencia";
+       operacion1= false;
+       igual = true;
        
     }//GEN-LAST:event_Button_ExponenteActionPerformed
 //Botón que saca la raíz x de un número
     private void Button_RaizXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RaizXActionPerformed
-      
+      inicio = true;
+      valor1 = Double.parseDouble(TextField_Principal.getText());
+      TextField_Previo.setText(valor1+ "yroot ");
+      tipoOperaciones = "raizx";
+      operacion1 = false;
+      igual = true;    
     }//GEN-LAST:event_Button_RaizXActionPerformed
 //Botón que eleva a x al cubo
     private void Button_CuboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CuboActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText("cubo( "+valor1+ " )");
+       TextField_Principal.setText(Math.pow(valor1, 3)+" ");
+          
     }//GEN-LAST:event_Button_CuboActionPerformed
 //Botón que devuelve el factorial de un número
     private void Button_FactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_FactorialActionPerformed
-       
+       a = 1;
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText("fact( "+valor1+ " )");
+       for(b=1; b <= valor1; b++){
+           a = a*b;
+       }
+       TextField_Principal.setText(a+ " ");
     }//GEN-LAST:event_Button_FactorialActionPerformed
 //Botón que devuelve el valor de e
     private void Button_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EActionPerformed
+      TextField_Previo.setText("E ");
+      TextField_Principal.setText(Math.E+" ");
       
-
     }//GEN-LAST:event_Button_EActionPerformed
 //Botón de la raíz cubica
     private void Button_RaizCubicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RaizCubicaActionPerformed

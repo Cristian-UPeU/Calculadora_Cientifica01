@@ -1245,7 +1245,7 @@ public class Calculadora extends javax.swing.JFrame {
        TextField_Previo.setText("log ("+valor1+" ) ");
        TextField_Principal.setText(Math.log(valor1)+" ");
     }//GEN-LAST:event_Button_logActionPerformed
-//Botón con la función MC
+//Botón con la Función MC
     private void Button_MCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MCActionPerformed
         
     }//GEN-LAST:event_Button_MCActionPerformed

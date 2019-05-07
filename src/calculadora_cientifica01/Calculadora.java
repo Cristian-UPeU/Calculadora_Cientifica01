@@ -800,7 +800,12 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_DecimalActionPerformed
 //Botón de la función de suma
     private void Button_SumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SumaActionPerformed
-        
+        igual = false;
+        inicio = true;
+        //Condicion para la Variable1
+        if (operacion1 == true) {
+            valor1 = Double.parseDouble(TextField_Principal.getText());
+        }
     }//GEN-LAST:event_Button_SumaActionPerformed
 //Botón de la función de resta
     private void Button_RestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RestaActionPerformed

@@ -1247,23 +1247,27 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_logActionPerformed
 //Botón con la Función MC
     private void Button_MCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MCActionPerformed
-        
+        memoria = 0;
+        Label_Memoria.setVisible(false);
     }//GEN-LAST:event_Button_MCActionPerformed
 //Botón con la función MR
     private void Button_MRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MRActionPerformed
-       
+       TextField_Principal.setText(memoria + " ");
     }//GEN-LAST:event_Button_MRActionPerformed
 //Botón con la función MS
     private void Button_MSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MSActionPerformed
-       
+       memoria = Double.parseDouble(TextField_Principal.getText());
+       Label_Memoria.setVisible(true); 
     }//GEN-LAST:event_Button_MSActionPerformed
 //Botón con la función M+
     private void Button_MmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MmasActionPerformed
-       
+        memoria = memoria + Double.parseDouble(TextField_Principal.getText());
+        Label_Memoria.setVisible(true);  
     }//GEN-LAST:event_Button_MmasActionPerformed
 //Botón con la función M-
     private void Button_MmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MmenosActionPerformed
-      
+        memoria = memoria - Double.parseDouble(TextField_Principal.getText());
+        Label_Memoria.setVisible(true); 
     }//GEN-LAST:event_Button_MmenosActionPerformed
 
     /**

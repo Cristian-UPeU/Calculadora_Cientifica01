@@ -1215,24 +1215,35 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_EActionPerformed
 //Botón de la raíz cubica
     private void Button_RaizCubicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RaizCubicaActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       a = 1;
+       b = 3;
+       c = a/b;
+       TextField_Previo.setText("cunoroot ("+valor1+" ) ");
+       TextField_Principal.setText(Math.pow(valor1, c)+" ");
     }//GEN-LAST:event_Button_RaizCubicaActionPerformed
 //Botón eleva a x al cuadrado
     private void Button_CuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CuadradoActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText("sqr ("+valor1+" ) ");
+       TextField_Principal.setText(Math.pow(valor1, 2)+" ");
     }//GEN-LAST:event_Button_CuadradoActionPerformed
 //Botón que eleva 10 a la x potencia
     private void Button_10levarXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_10levarXActionPerformed
-        
-        
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText("powten ("+valor1+" ) ");
+       TextField_Principal.setText(Math.pow(10, valor1)+" ");
     }//GEN-LAST:event_Button_10levarXActionPerformed
 //Botón de la exponenciación neperiana
     private void Button_EXPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EXPActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Principal.setText(Math.exp(valor1)+" ");
     }//GEN-LAST:event_Button_EXPActionPerformed
 //Botón del logaritmo neperiano
     private void Button_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_logActionPerformed
-       
+       valor1 = Double.parseDouble(TextField_Principal.getText());
+       TextField_Previo.setText("log ("+valor1+" ) ");
+       TextField_Principal.setText(Math.log(valor1)+" ");
     }//GEN-LAST:event_Button_logActionPerformed
 //Botón con la función MC
     private void Button_MCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MCActionPerformed

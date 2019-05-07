@@ -13,11 +13,11 @@ import java.awt.Color;
  */
 public class Calculadora extends javax.swing.JFrame {
    //Declaramos los atributos
-    /*private boolean igual, inicio = true, operacion2, operacion2;*/
-    
+    private boolean igual, inicio = true, operacion1, operacion2;
+    private double a, b, c, memoria = 0, resultado, valor1, valor2;
     public Calculadora() {
        initComponents();
-       /*this.setLocationRelativeTo(null);*/
+       this.setLocationRelativeTo(null);
     }
 
     /**
